@@ -115,5 +115,5 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
 });
-
+// getting ready for new assignment
 export default App;
