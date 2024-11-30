@@ -19,6 +19,7 @@ const App = () => {
       <View style={styles.footer}>
         <Text style={styles.footerText}>
           This is Usman's first Android app, ready for great learning!
+          This is Usman's first Android app, ready for great learning!
         </Text>
       </View>
     </SafeAreaView>
