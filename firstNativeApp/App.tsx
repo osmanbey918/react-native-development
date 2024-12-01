@@ -1,27 +1,30 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import Home from './src/screens/home/Home'; // Adjust the path to where Home.tsx is located
+import { SafeAreaView, StyleSheet, Text, View, ScrollView } from 'react-native';
+import Home from './src/screens/home/Home'; // Adjust the path
+import RockPaperScissors from './src/screens/game/RockPaperScissors';
 
 const App = () => {
   return (
     <SafeAreaView style={styles.container}>
-      {/* Header Section */}
-      <View style={styles.header}>
-        <Text style={styles.title}>Welcome to My React Native App</Text>
-      </View>
+      <ScrollView contentContainerStyle={styles.scrollContent}>
+        {/* Header Section */}
+        <View style={styles.header}>
+          <Text style={styles.title}>🎮 Welcome to My React Native App 🎉</Text>
+        </View>
 
-      {/* Home Component Section */}
-      <View style={styles.body}>
-        <Home />
-      </View>
+        {/* Main Content Section */}
+        <View style={styles.body}>
+          <Home />
+          <RockPaperScissors />
+        </View>
 
-      {/* Footer Section */}
-      <View style={styles.footer}>
-        <Text style={styles.footerText}>
-          This is Usman's first Android app, ready for great learning!
-          This is Usman's first Android app, ready for great learning!
-        </Text>
-      </View>
+        {/* Footer Section */}
+        <View style={styles.footer}>
+          <Text style={styles.footerText}>
+            Made with ❤️ by Usman. Let's learn and build something amazing! 🚀
+          </Text>
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -29,29 +32,41 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f2f2f2',
+    backgroundColor: '#f9f9f9',
+  },
+  scrollContent: {
+    flexGrow: 1, // Ensures the content is scrollable even if it's smaller than the viewport
   },
   header: {
-    padding: 20,
     backgroundColor: '#6200ea',
+    paddingVertical: 30,
+    paddingHorizontal: 20,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+    alignItems: 'center',
   },
   title: {
+    fontSize: 22,
     color: '#fff',
-    fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
   },
   body: {
     flex: 1,
+    padding: 20,
+    marginVertical: 10,
     justifyContent: 'center',
     alignItems: 'center',
   },
   footer: {
-    backgroundColor: 'skyblue',
-    padding: 10,
+    backgroundColor: '#6200ea',
+    padding: 15,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
   },
   footerText: {
-    color: 'white',
+    color: '#fff',
+    fontSize: 14,
     textAlign: 'center',
   },
 });
