@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
-const RockPaperScissors: React.FC = () => {
+const RockPaperScissors: React.FC = () => {// React.FC means it is functional components
   const [userChoice, setUserChoice] = useState<string | null>(null);
   const [computerChoice, setComputerChoice] = useState<string | null>(null);
   const [result, setResult] = useState<string | null>(null);
@@ -87,15 +87,15 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
-  resultContainer: {
-    marginTop: 40,
-    alignItems: 'center',
-  },
-  resultText: {
-    fontSize: 18,
-    color: '#444',
-    marginVertical: 5,
-  },
+  // resultContainer: {
+  //   marginTop: 40,
+  //   alignItems: 'center',
+  // },
+  // resultText: {
+  //   fontSize: 18,
+  //   color: '#444',
+  //   marginVertical: 5,
+  // },
 });
 
 export default RockPaperScissors;
