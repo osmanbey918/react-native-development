@@ -5,6 +5,7 @@ const RockPaperScissors: React.FC = () => {// React.FC means it is functional co
   const [userChoice, setUserChoice] = useState<string | null>(null);
   const [computerChoice, setComputerChoice] = useState<string | null>(null);
   const [result, setResult] = useState<string | null>(null);
+  const [ratio, setratio] = useState< | 0>;
 
   const choices = ['Rock', 'Paper', 'Scissors'];
 
@@ -87,15 +88,15 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
-  // resultContainer: {
-  //   marginTop: 40,
-  //   alignItems: 'center',
-  // },
-  // resultText: {
-  //   fontSize: 18,
-  //   color: '#444',
-  //   marginVertical: 5,
-  // },
+  resultContainer: {
+    marginTop: 40,
+    alignItems: 'center',
+  },
+  resultText: {
+    fontSize: 18,
+    color: '#444',
+    marginVertical: 5,
+  },
 });
 
 export default RockPaperScissors;
