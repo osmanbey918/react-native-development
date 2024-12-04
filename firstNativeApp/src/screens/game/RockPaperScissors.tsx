@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, FlatList } from 'react-native';
 
-const RockPaperScissors: React.FC = () => {// React.FC means it is functional components
+const RockPaperScissors: React.FC = () => {
   const [userChoice, setUserChoice] = useState<string | null>(null);
   const [computerChoice, setComputerChoice] = useState<string | null>(null);
   const [result, setResult] = useState<string | null>(null);
-  const [ratio, setratio] = useState< | 0>;
 
   const choices = ['Rock', 'Paper', 'Scissors'];
 
@@ -27,6 +26,31 @@ const RockPaperScissors: React.FC = () => {// React.FC means it is functional co
       setResult('You Win! 🎉');
     } else {
       setResult('You Lose! 😢');
+    }
+  };
+
+  // Memory Game Logic
+  const memoryItems = ['🍎', '🍌', '🍇', '🍉', '🍎', '🍌', '🍇', '🍉'];
+  const [shuffledItems, setShuffledItems] = useState<string[]>(
+    memoryItems.sort(() => Math.random() - 0.5)
+  );
+  const [selectedItems, setSelectedItems] = useState<number[]>([]);
+  const [matchedItems, setMatchedItems] = useState<number[]>([]);
+
+  const handleMemorySelection = (index: number) => {
+    if (selectedItems.length < 2 && !selectedItems.includes(index)) {
+      setSelectedItems([...selectedItems, index]);
+
+      if (
+        selectedItems.length === 1 &&
+        shuffledItems[selectedItems[0]] === shuffledItems[index]
+      ) {
+        setMatchedItems([...matchedItems, selectedItems[0], index]);
+      }
+
+      if (selectedItems.length === 1) {
+        setTimeout(() => setSelectedItems([]), 1000);
+      }
     }
   };
 
@@ -53,6 +77,33 @@ const RockPaperScissors: React.FC = () => {// React.FC means it is functional co
           <Text style={styles.resultText}>Result: {result}</Text>
         </View>
       )}
+
+      <View style={styles.memoryGameContainer}>
+        <Text style={styles.memoryTitle}>Memory Game</Text>
+        <FlatList
+          data={shuffledItems}
+          numColumns={4}
+          renderItem={({ item, index }) => (
+            <TouchableOpacity
+              style={[
+                styles.memoryItem,
+                matchedItems.includes(index) || selectedItems.includes(index)
+                  ? styles.memoryItemMatched
+                  : styles.memoryItemHidden,
+              ]}
+              onPress={() => handleMemorySelection(index)}
+              disabled={matchedItems.includes(index)}
+            >
+              <Text style={styles.memoryItemText}>
+                {matchedItems.includes(index) || selectedItems.includes(index)
+                  ? item
+                  : '?'}
+              </Text>
+            </TouchableOpacity>
+          )}
+          keyExtractor={(_, index) => index.toString()}
+        />
+      </View>
     </View>
   );
 };
@@ -96,6 +147,35 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: '#444',
     marginVertical: 5,
+  },
+  memoryGameContainer: {
+    marginTop: 40,
+    width: '100%',
+    alignItems: 'center',
+  },
+  memoryTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  memoryItem: {
+    width: 50,
+    height: 50,
+    margin: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 8,
+    backgroundColor: '#ccc',
+  },
+  memoryItemMatched: {
+    backgroundColor: '#4caf50',
+  },
+  memoryItemHidden: {
+    backgroundColor: '#9e9e9e',
+  },
+  memoryItemText: {
+    fontSize: 24,
+    color: '#fff',
   },
 });
 
