@@ -13,22 +13,22 @@ const App = () => {
   return (
     <View style={styles.container}>
       {/* Logo Section */}
-      <Image 
-        source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }} 
-        style={styles.logo} 
+      <Image
+        source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }}
+        style={styles.logo}
       />
       <Text style={styles.title}>Welcome to SocialApp</Text>
 
       {/* Input Fields */}
-      <TextInput 
-        style={styles.input} 
-        placeholder="Username or Email" 
+      <TextInput
+        style={styles.input}
+        placeholder="Username or Email"
         placeholderTextColor="#aaa"
       />
-      <TextInput 
-        style={styles.input} 
-        placeholder="Password" 
-        placeholderTextColor="#aaa" 
+      <TextInput
+        style={styles.input}
+        placeholder="Password"
+        placeholderTextColor="#aaa"
         secureTextEntry
       />
 
@@ -40,6 +40,9 @@ const App = () => {
       <TouchableOpacity style={styles.signUpButton} onPress={handleSignUp}>
         <Text style={styles.signUpText}>Create New Account</Text>
       </TouchableOpacity>
+
+      <Text style={styles.forgot}>Forgot password..!</Text>
+
     </View>
   );
 };
@@ -51,6 +54,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fff',
     padding: 20,
+  },
+  forgot: {
+    color: 'grey',
+
   },
   logo: {
     width: 100,
