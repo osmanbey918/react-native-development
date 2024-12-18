@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, ScrollView, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
+import {
+  createStaticNavigation,
+  useNavigation,
+} from '@react-navigation/native';
 
 const SignUp = () => {
     const [formData, setFormData] = useState({
@@ -16,7 +20,7 @@ const SignUp = () => {
     const handleInputChange = (field, value) => {
         setFormData({ ...formData, [field]: value });
     };
-
+    const navigation = useNavigation();
     const handleSignup = () => {
         console.log('Signup Data:', formData);
         navigation.navigate('Login');
