@@ -12,7 +12,7 @@ const Stack = createNativeStackNavigator();
 
 function RootStack({ user }: { user: FirebaseAuthTypes.User | null }) {
   return (
-    <Stack.Navigator initialRouteName={user ? 'SignUp' : 'Login'}>
+    <Stack.Navigator >
       {user ? (
         <Stack.Screen name="WelCome" component={WelCome} />
       ) : (
