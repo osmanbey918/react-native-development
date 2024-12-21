@@ -13,11 +13,12 @@ const ContactUs = () => {
             return;
         }
 
-        const userMessage = firestore().collection('contacts');
-        // const docRef = addDoc(collection('contacts'), data);
+        // const userMessage = firestore().collection('customers');
+        // const docRef = addDoc(collection('contacts'), userMessage);
+        console.log('Contact Data:', name, email, message);
         try {
-            console.log('Contact Data:', userMessage.user);
-            await userMessage.addDoc({
+            // console.log('Contact Data:', userMessage);
+            await firestore().collection('contacts').add({
                 name,
                 email,
                 message,
