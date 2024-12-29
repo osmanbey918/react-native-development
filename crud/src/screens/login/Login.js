@@ -12,7 +12,7 @@ export default function Login() {
     try {
       const userData = await auth().signInWithEmailAndPassword(email, password);
       console.log(userData.user);
-      navigation.navigate('WelCome')
+      navigation.navigate('welCome')
     }
     catch (error) {
       console.error('Sign up error:', error.message);
@@ -38,6 +38,7 @@ export default function Login() {
         </View>
       ))}
       <Button title='Login' onPress={handleLogin} />
+      <TextInput>create a new account?</TextInput>
       <Button title='SignUp' onPress={() => navigation.navigate('SignUp')} />
     </View>
   )

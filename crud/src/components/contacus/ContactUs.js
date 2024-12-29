@@ -65,6 +65,7 @@ const ContactUs = () => {
             <TouchableOpacity style={styles.button} onPress={handleSubmit}>
                 <Text style={styles.buttonText}>Send</Text>
             </TouchableOpacity>
+            
         </View>
     );
 };

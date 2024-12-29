@@ -2,6 +2,8 @@ import { View, Text, StyleSheet } from 'react-native';
 import React from 'react';
 import SignOut from '../../components/signout/SignOut';
 import ContactUs from '../../components/contacus/ContactUs';
+import { TextInput } from 'react-native-gesture-handler';
+import FeedScreen from '../feed/FeedScreen';
 
 export default function WelCome() {
   return (
@@ -10,7 +12,13 @@ export default function WelCome() {
         <SignOut />
       </View>
       <Text style={styles.header}>Welcome!! You have successfully logged in</Text>
-      <ContactUs />
+      <View>
+        <TextInput></TextInput>
+      </View>
+
+
+      {/* <ContactUs /> */}
+      <FeedScreen />
     </View>
   );
 }
